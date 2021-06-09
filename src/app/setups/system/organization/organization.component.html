@@ -1,0 +1,266 @@
+<div class="content">
+  <form  #f="ngForm" novalidate
+         class="example-form" (ngSubmit)="f.form.valid && saveOrganisation(f.value)">
+   <input type="hidden" name="orgCode" [(ngModel)]="service.org.orgCode">
+    <div fxLayout="row wrap" fxLayoutGap="16px grid">
+      <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%" style="margin-bottom: 1em">
+      <span class="mat-headline" style=" font-weight: lighter">Institution Setups</span>
+      </div>
+      <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%">
+
+
+        <button type="submit" mat-raised-button color="primary" class="mat-elevation-z8">{{sore}}</button>
+
+
+
+        <button type="button" mat-raised-button color="warn" class="mat-elevation-z8" style="margin-left: 5px" (click)="deleteOranisation()">Delete</button>
+
+      </div>
+
+      <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="50%">
+
+<!--           style="margin-top: 1em" (ngSubmit)="f.form. valid && logIn(f.value)">-->
+
+
+
+
+          <mat-form-field >
+            <mat-label>Name</mat-label>
+            <textarea name="name" matInput [readonly]="sore === 'Edit'"
+                      [(ngModel)]="service.org.name"
+                      #name="ngModel"
+                      required></textarea>
+          </mat-form-field>
+
+      <mat-hint *ngIf="f.submitted && name.invalid"> <i style="color: red">name is required</i></mat-hint>
+
+
+      </div>
+
+      <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="50%">
+
+        <!--           style="margin-top: 1em" (ngSubmit)="f.form. valid && logIn(f.value)">-->
+
+
+
+
+        <mat-form-field >
+          <mat-label>Brief Description</mat-label>
+          <textarea matInput
+                    name="description" matInput [readonly]="sore === 'Edit'"
+                    [(ngModel)]="service.org.description"
+                    #description="ngModel"
+                    required></textarea>
+        </mat-form-field>
+
+      <mat-hint *ngIf="f.submitted && description.invalid"> <i style="color: red">description is required</i></mat-hint>
+
+
+      </div>
+
+
+      <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="50%">
+
+        <mat-form-field >  <!-- appearance="outline" -->
+          <mat-label>Physical Address</mat-label>
+          <textarea matInput name="address" [readonly]="sore === 'Edit'"
+                    [(ngModel)]="service.org.address"
+                    #address="ngModel"
+                    required></textarea>
+        </mat-form-field>
+       <mat-hint *ngIf="f.submitted && address.invalid"> <i style="color: red">address is required</i></mat-hint>
+
+
+      </div>
+
+      <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="50%">
+
+        <!--           style="margin-top: 1em" (ngSubmit)="f.form. valid && logIn(f.value)">-->
+
+
+
+
+        <mat-form-field >
+          <mat-label>Postal Address</mat-label>
+          <textarea matInput name="box" [readonly]="sore === 'Edit'"
+                    [(ngModel)]="service.org.box"
+                    #box="ngModel"
+                    required></textarea>
+        </mat-form-field>
+
+       <mat-hint *ngIf="f.submitted && box.invalid"> <i style="color: red">postal address is required</i></mat-hint>
+
+
+      </div>
+
+      <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="50%">
+
+        <!--           style="margin-top: 1em" (ngSubmit)="f.form. valid && logIn(f.value)">-->
+
+
+
+
+        <mat-form-field >
+          <mat-label>Tel No.</mat-label>
+          <input matInput name="telNo" [readonly]="sore === 'Edit'"
+                 [(ngModel)]="service.org.telNo"
+                 #telNo="ngModel"
+                 required
+                 >
+        </mat-form-field>
+
+         <mat-hint *ngIf="f.submitted && telNo.invalid"> <i style="color: red">telephone is required</i></mat-hint>
+
+
+      </div>
+
+      <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="50%">
+
+        <!--           style="margin-top: 1em" (ngSubmit)="f.form. valid && logIn(f.value)">-->
+
+
+
+
+        <mat-form-field >
+          <mat-label>Cell No.</mat-label>
+          <input matInput name="cellNo" [readonly]="sore === 'Edit'"
+                 [(ngModel)]="service.org.cellNo"
+          >
+        </mat-form-field>
+
+        <!-- <mat-hint *ngIf="f.submitted && username.invalid"> <i style="color: red">username is required</i></mat-hint> -->
+
+
+      </div>
+
+      <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="50%">
+
+        <!--           style="margin-top: 1em" (ngSubmit)="f.form. valid && logIn(f.value)">-->
+
+
+
+
+        <mat-form-field >
+          <mat-label>Email</mat-label>
+          <input matInput name="email" [readonly]="sore === 'Edit'"
+                 [(ngModel)]="service.org.email"
+                 #email="ngModel"
+                 required
+          >
+        </mat-form-field>
+
+         <mat-hint *ngIf="f.submitted && email.invalid"> <i style="color: red">email is required</i></mat-hint>
+
+
+      </div>
+
+      <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="50%">
+
+        <!--           style="margin-top: 1em" (ngSubmit)="f.form. valid && logIn(f.value)">-->
+
+
+
+
+        <mat-form-field >
+          <mat-label>Website</mat-label>
+          <input matInput name="website" [readonly]="sore === 'Edit'"
+                 [(ngModel)]="service.org.website">
+                 <!--#website="ngModel"-->
+                 <!--required-->
+<!--          >-->
+        </mat-form-field>
+
+<!--         <mat-hint *ngIf="f.submitted && website.invalid"> <i style="color: red">username is required</i></mat-hint> -->
+
+
+      </div>
+
+      <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="50%">
+
+        <!--           style="margin-top: 1em" (ngSubmit)="f.form. valid && logIn(f.value)">-->
+
+
+
+
+        <mat-form-field >
+          <mat-label>Motto</mat-label>
+          <input matInput name="motto" [readonly]="sore === 'Edit'"
+                 [(ngModel)]="service.org.motto"
+                 #motto="ngModel"
+                 required
+          >
+        </mat-form-field>
+
+         <mat-hint *ngIf="f.submitted && motto.invalid"> <i style="color: red">motto is required</i></mat-hint>
+
+
+      </div>
+
+      <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="50%">
+
+        <!--           style="margin-top: 1em" (ngSubmit)="f.form. valid && logIn(f.value)">-->
+
+
+
+
+        <mat-form-field >
+          <mat-label>Mission</mat-label>
+          <input matInput name="mission" [readonly]="sore === 'Edit'"
+                 [(ngModel)]="service.org.mission"
+                 #mission="ngModel"
+                 required
+          >
+        </mat-form-field>
+
+         <mat-hint *ngIf="f.submitted && mission.invalid"> <i style="color: red">mission is required</i></mat-hint>
+
+
+      </div>
+
+      <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="50%">
+
+        <!--           style="margin-top: 1em" (ngSubmit)="f.form. valid && logIn(f.value)">-->
+
+
+
+
+        <mat-form-field >
+          <mat-label>Vision</mat-label>
+          <input matInput name="vision" [readonly]="sore === 'Edit'"
+                 [(ngModel)]="service.org.vision"
+                 #vision="ngModel"
+                 required
+          >
+        </mat-form-field>
+
+         <mat-hint *ngIf="f.submitted && vision.invalid"> <i style="color: red">vision is required</i></mat-hint>
+
+
+      </div>
+
+<!--      <div style="background-color: #a94442"  *ngIf="f.submitted && isLoggedInFailed"  style="text-align: center;margin-bottom: 1em; width: auto"> <i style="color: red">&nbsp;&nbsp;&nbsp;&nbsp; Invalid Log In Credentials!!!</i></div>-->
+
+<!--      <button type="submit" mat-stroked-button class="btn-block">Log in</button>-->
+
+      <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="50%" style="margin-top: 1em;">
+        <div *ngIf="filePath && filePath !== '' && sore === 'Save'">
+          <img [src]="filePath" [alt]="image">
+        </div>
+        <div *ngIf="sore === 'Edit'">
+          <img [src]="byteString" [alt]="image">
+        </div>
+        <div *ngIf="sore === 'Save' && byteString && byteString !== undefined && byteString !== ''">
+          <img [src]="byteString" [alt]="image">
+        </div>
+        <label *ngIf="sore === 'Save'" class="with-icon">
+            <mat-icon color="primary">image</mat-icon><span>Logo</span>
+            <input type="file" name="file" #logo accept="image/*" (change)="imagePreview($event)" style="display: none"/>
+
+
+        </label>
+
+      </div>
+  </div>
+
+  </form>
+</div>

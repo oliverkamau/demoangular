@@ -1,0 +1,1045 @@
+<mat-toolbar class="example-toolbar">
+  <button mat-icon-button (click)="isExpanded = !isExpanded"><mat-icon class="icon-color">menu</mat-icon></button>
+
+  <img src="/assets/images/edlog.jpg"/>
+  <span class="example-spacer"></span>
+  <button mat-icon-button  aria-label="Example icon-button with heart icon">
+    <mat-icon class="example-icon">person_pin</mat-icon>
+  </button>
+  <button mat-icon-button aria-label="Example icon-button with heart icon">
+  <mat-icon class="example-icon">circle_notifications</mat-icon>
+</button>
+  <button mat-icon-button aria-label="Example icon-button with share icon">
+    <mat-icon class="example-icon">help</mat-icon>
+  </button>
+</mat-toolbar>
+<mat-sidenav-container class="example-container" autosize>
+  <mat-sidenav  #sidenav class="example-sidenav" mode="side" opened="true"><!-- (mouseenter)="mouseenter()" (mouseleave)="mouseleave()" -->
+    <mat-nav-list>
+      <mat-list-item (click)="showSubmenu = !showSubmenu" class="parent">
+        <span class="full-width" *ngIf="isExpanded || isShowing">Setups</span>
+        <mat-icon class="main-button" mat-list-icon>miscellaneous_services</mat-icon>
+        <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubmenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+      </mat-list-item>
+
+      <div class="submenu" [ngClass]="{'expanded' : showSubmenu}" *ngIf="showSubmenu">
+        <mat-list-item  (click)="openSubmenu()">
+          <span class="full-width text-size">System Setups</span>
+
+          <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubSubMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+        </mat-list-item>
+
+        <div class="sub-sub-menu" [ngClass]="{'expanded' : showSubSubMenu}" *ngIf="isSubExpanded || isSubShowing">
+          <mat-list-item  >
+            <a routerLink="organization" class="full-width sub-size">Organization</a>
+
+
+          </mat-list-item>
+
+          <mat-list-item  >
+            <a class="full-width sub-size">Excel Imports</a>
+
+
+          </mat-list-item>
+
+          <mat-list-item  >
+            <a routerLink="parameters" class="full-width sub-size">Parameters</a>
+
+
+          </mat-list-item>
+
+          <mat-list-item  >
+            <a routerLink="sequences" class="full-width sub-size">Sequences</a>
+
+
+          </mat-list-item>
+
+          <mat-list-item  >
+            <a class="full-width sub-size">Templates</a>
+
+
+          </mat-list-item>
+
+          <mat-list-item  >
+            <a class="full-width sub-size">Incidents</a>
+
+
+          </mat-list-item>
+
+        </div>
+
+
+
+
+        <mat-list-item  (click)="openSystemmenu()">
+          <span class="full-width text-size">Admin Setups</span>
+
+          <mat-icon class="menu-button" [ngClass]="{'rotated' : showSystemMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+        </mat-list-item>
+
+        <div class="sub-sub-menu" [ngClass]="{'expanded' : showSystemMenu}" *ngIf="isSystemExpanded || isSystemShowing">
+          <mat-list-item  >
+            <a href="#" class="full-width sub-size">System Users</a>
+
+
+          </mat-list-item>
+
+          <mat-list-item  >
+            <a class="full-width sub-size">User Options</a>
+
+
+          </mat-list-item>
+
+          <mat-list-item  >
+            <a class="full-width sub-size">Auth Areas</a>
+
+
+          </mat-list-item>
+
+          <mat-list-item  >
+            <span class="full-width sub-size">Reset Password</span>
+
+
+          </mat-list-item>
+
+          <mat-list-item  >
+            <a class="full-width sub-size">Main Menu</a>
+
+
+          </mat-list-item>
+
+          <mat-list-item  >
+            <a class="full-width sub-size">Detailed Menu</a>
+
+
+          </mat-list-item>
+
+        </div>
+
+
+
+
+
+
+
+        <mat-list-item  (click)="openAccountmenu()">
+          <span class="full-width text-size">Account Setups</span>
+
+          <mat-icon class="menu-button" [ngClass]="{'rotated' : showAccountMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+        </mat-list-item>
+
+        <div class="sub-sub-menu" [ngClass]="{'expanded' : showAccountMenu}" *ngIf="isAccountExpanded || isAccountShowing">
+          <mat-list-item  >
+            <a href="#" class="full-width sub-size">System Accounts</a>
+
+
+          </mat-list-item>
+
+          <mat-list-item  >
+            <a class="full-width sub-size">Accounts Mapping</a>
+
+
+          </mat-list-item>
+
+          <mat-list-item  >
+            <a class="full-width sub-size">Payment Modes</a>
+
+
+          </mat-list-item>
+
+          <mat-list-item  >
+            <span class="full-width sub-size">Standard Charges</span>
+
+
+          </mat-list-item>
+
+          <mat-list-item  >
+            <a class="full-width sub-size">Create Journals</a>
+
+
+          </mat-list-item>
+
+          <mat-list-item  >
+            <a class="full-width sub-size">Banks</a>
+
+
+          </mat-list-item>
+          <mat-list-item  >
+            <a class="full-width sub-size">Bank Branches</a>
+
+
+          </mat-list-item>
+
+        </div>
+
+
+
+
+
+
+        <mat-list-item  (click)="openAcademicmenu()">
+          <span class="full-width text-size">Academic Setups</span>
+
+          <mat-icon class="menu-button" [ngClass]="{'rotated' : showAcademicMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+        </mat-list-item>
+
+        <div class="sub-sub-menu" [ngClass]="{'expanded' : showAcademicMenu}" *ngIf="isAcademicExpanded || isAcademicShowing">
+          <mat-list-item  >
+            <a href="#" class="full-width sub-size">Classes</a>
+
+
+          </mat-list-item>
+
+          <mat-list-item  >
+            <a class="full-width sub-size">Class Subjects</a>
+
+
+          </mat-list-item>
+
+          <mat-list-item  >
+            <a class="full-width sub-size">Subjects</a>
+
+
+          </mat-list-item>
+
+          <mat-list-item  >
+            <span class="full-width sub-size">Subject Groups</span>
+
+
+          </mat-list-item>
+
+          <mat-list-item  >
+            <a class="full-width sub-size">Departments/Courses</a>
+
+
+          </mat-list-item>
+
+          <mat-list-item  >
+            <a class="full-width sub-size">Terms Dates</a>
+
+
+          </mat-list-item>
+
+          <mat-list-item  >
+            <a class="full-width sub-size">Dorms</a>
+
+
+          </mat-list-item>
+
+          <mat-list-item  >
+            <a class="full-width sub-size">Grading System</a>
+
+
+          </mat-list-item>
+          <mat-list-item  >
+            <a class="full-width sub-size">Staff Responsibilities</a>
+
+
+          </mat-list-item>
+
+          <mat-list-item  >
+            <a class="full-width sub-size">Student Clearance</a>
+
+
+          </mat-list-item>
+
+
+          <mat-list-item  >
+            <a class="full-width sub-size">Lesson Rooms</a>
+
+
+          </mat-list-item>
+
+
+          <mat-list-item  >
+            <a class="full-width sub-size">Student Sources</a>
+
+
+          </mat-list-item>
+
+
+          <mat-list-item  >
+            <a class="full-width sub-size">Report Register</a>
+
+
+          </mat-list-item>
+
+
+          <mat-list-item  >
+            <a class="full-width sub-size">Parent Web Accounts</a>
+
+
+          </mat-list-item>
+
+          <mat-list-item  >
+            <a class="full-width sub-size">HT Comments</a>
+
+
+          </mat-list-item>
+
+        </div>
+
+
+
+
+        <mat-list-item  (click)="openPeriodmenu()">
+          <span class="full-width text-size">End of Period</span>
+
+          <mat-icon class="menu-button" [ngClass]="{'rotated' : showPeriodMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+        </mat-list-item>
+
+        <div class="sub-sub-menu" [ngClass]="{'expanded' : showPeriodMenu}" *ngIf="isPeriodExpanded || isPeriodShowing">
+          <mat-list-item  >
+            <a href="#" class="full-width sub-size">End of Term Process</a>
+
+
+          </mat-list-item>
+
+
+
+        </div>
+
+
+
+
+        <!--        <a mat-list-item (click)="showSubSubMenu = !showSubSubMenu">-->
+<!--          <span *ngIf="isExpanded || isShowing">Nested Menu</span>-->
+<!--          <mat-icon  class="sub-men-icon" [ngClass]="{'rotated' : showSubSubMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>-->
+<!--        </a>-->
+<!--        <div class="submenu" [ngClass]="{'expanded' : showSubSubMenu}" *ngIf="isShowing || isExpanded">-->
+<!--          <mat-list-item>SubSubmenu Item 1</mat-list-item>-->
+<!--          <mat-list-item>SubSubmenu Item 2</mat-list-item>-->
+<!--        </div>-->
+<!--        <a mat-list-item (click)="showSubSubMenu = !showSubSubMenu">-->
+<!--          <span *ngIf="isExpanded || isShowing">Nested Menu</span>-->
+<!--          <mat-icon  class="sub-men-icon" [ngClass]="{'rotated' : showSubSubMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>-->
+<!--        </a>-->
+<!--        <div class="submenu" [ngClass]="{'expanded' : showSubSubMenu}" *ngIf="isShowing || isExpanded">-->
+<!--          <mat-list-item>SubSubmenu Item 1</mat-list-item>-->
+<!--          <mat-list-item>SubSubmenu Item 2</mat-list-item>-->
+<!--        </div>-->
+      </div>
+      <mat-list-item (click)="showStudentSubmenu = !showStudentSubmenu" class="parent">
+        <span class="full-width" *ngIf="isExpanded || isShowing">Students Manager</span>
+        <mat-icon class="main-button" mat-list-icon>school</mat-icon>
+        <mat-icon class="menu-button" [ngClass]="{'rotated' : showStudentSubmenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+      </mat-list-item>
+
+
+
+      <div class="submenu" [ngClass]="{'expanded' : showStudentSubmenu}" *ngIf="showStudentSubmenu">
+        <mat-list-item>
+          <span class="full-width text-size">Student Enquiry</span>
+
+        </mat-list-item>
+        <mat-list-item>
+          <span class="full-width text-size">Parents</span>
+
+        </mat-list-item>
+        <mat-list-item>
+          <span class="full-width text-size">Student Details</span>
+
+        </mat-list-item>
+        <mat-list-item>
+          <span class="full-width text-size">Student Subjects</span>
+
+        </mat-list-item>
+        <mat-list-item>
+          <span class="full-width text-size">Student Movement</span>
+
+        </mat-list-item>
+        <mat-list-item>
+          <span class="full-width text-size">Student Daily Register</span>
+
+        </mat-list-item>
+
+        <mat-list-item  (click)="openTripmenu()">
+          <span class="full-width text-size">Trips</span>
+
+          <mat-icon class="menu-button" [ngClass]="{'rotated' : showTripMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+        </mat-list-item>
+
+        <div class="sub-sub-menu" [ngClass]="{'expanded' : showTripMenu}" *ngIf="isTripExpanded || isTripShowing">
+          <mat-list-item  >
+            <a href="#" class="full-width sub-size">Trip Setups</a>
+
+
+          </mat-list-item>
+
+          <mat-list-item  >
+            <a href="#" class="full-width sub-size">Student Trips</a>
+
+
+          </mat-list-item>
+        </div>
+          <mat-list-item>
+            <span class="full-width text-size">Extra Curriculum</span>
+
+          </mat-list-item>
+          <mat-list-item>
+            <a href="#" class="full-width text-size">Event Calendar</a>
+
+          </mat-list-item>
+
+
+
+
+
+      </div>
+
+
+      <mat-list-item (click)="showStaffSubmenu = !showStaffSubmenu" class="parent">
+        <span class="full-width" *ngIf="isExpanded || isShowing">Staff Manager</span>
+        <mat-icon class="main-button" mat-list-icon>reduce_capacity</mat-icon>
+        <mat-icon class="menu-button" [ngClass]="{'rotated' : showStaffSubmenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+      </mat-list-item>
+      <div class="submenu" [ngClass]="{'expanded' : showStaffSubmenu}" *ngIf="showStaffSubmenu">
+        <mat-list-item>
+          <span class="full-width text-size">Teacher Details</span>
+
+        </mat-list-item>
+        <mat-list-item>
+          <span class="full-width text-size">Support Staff</span>
+
+        </mat-list-item>
+        <mat-list-item>
+          <span class="full-width text-size">Teacher Attendance Register</span>
+
+        </mat-list-item>
+        <mat-list-item>
+          <span class="full-width text-size">Non Teaching Staff Register</span>
+
+        </mat-list-item>
+        <mat-list-item>
+          <span class="full-width text-size">Teachers Leaveout</span>
+
+        </mat-list-item>
+
+      </div>
+
+      <mat-list-item (click)="showExamSubmenu = !showExamSubmenu" class="parent">
+        <span class="full-width" *ngIf="isExpanded || isShowing">Exam Manager</span>
+        <mat-icon class="main-button" mat-list-icon>menu_book</mat-icon>
+        <mat-icon class="menu-button" [ngClass]="{'rotated' : showExamSubmenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+      </mat-list-item>
+      <div class="submenu" [ngClass]="{'expanded' : showExamSubmenu}" *ngIf="showExamSubmenu">
+        <mat-list-item>
+          <span class="full-width text-size">Exam Registration</span>
+
+        </mat-list-item>
+        <mat-list-item>
+          <span class="full-width text-size">Marks Recording</span>
+
+        </mat-list-item>
+        <mat-list-item>
+          <span class="full-width text-size">Exam Processing</span>
+
+        </mat-list-item>
+        <mat-list-item>
+          <span class="full-width text-size">Merge Exams</span>
+
+        </mat-list-item>
+        <mat-list-item>
+          <span class="full-width text-size">Combine Subjects</span>
+
+        </mat-list-item>
+        <mat-list-item>
+          <span class="full-width text-size">Custom Teacher Comments</span>
+
+        </mat-list-item>
+
+      </div>
+
+      <mat-list-item (click)="showTimetableSubmenu = !showTimetableSubmenu" class="parent">
+        <span class="full-width" *ngIf="isExpanded || isShowing">Timetable Manager</span>
+        <mat-icon class="main-button" class="material-icons-two-tone" mat-list-icon>hourglass_bottom</mat-icon>
+        <mat-icon class="menu-button" [ngClass]="{'rotated' : showTimetableSubmenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+      </mat-list-item>
+      <div class="submenu" [ngClass]="{'expanded' : showTimetableSubmenu}" *ngIf="showTimetableSubmenu">
+        <mat-list-item>
+          <span class="full-width text-size">Day Setup</span>
+
+        </mat-list-item>
+        <mat-list-item>
+          <span class="full-width text-size">Lesson Setup</span>
+
+        </mat-list-item>
+        <mat-list-item>
+          <span class="full-width text-size">Lesson Allocation</span>
+
+        </mat-list-item>
+
+
+
+      </div>
+
+
+      <mat-list-item (click)="showLibrarySubmenu = !showLibrarySubmenu" class="parent">
+        <span class="full-width" *ngIf="isExpanded || isShowing">Library Manager</span>
+        <mat-icon class="main-button" class="material-icons-two-tone" mat-list-icon>local_library</mat-icon>
+        <mat-icon class="menu-button" [ngClass]="{'rotated' : showLibrarySubmenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+      </mat-list-item>
+
+
+      <div class="submenu" [ngClass]="{'expanded' : showLibrarySubmenu}" *ngIf="showLibrarySubmenu">
+        <mat-list-item>
+          <span class="full-width text-size">Stores</span>
+
+        </mat-list-item>
+        <mat-list-item>
+          <span class="full-width text-size">Stationery</span>
+
+        </mat-list-item>
+        <mat-list-item>
+          <span class="full-width text-size">Shelves</span>
+
+        </mat-list-item>
+        <mat-list-item>
+          <span class="full-width text-size">Category Setups</span>
+
+        </mat-list-item>
+        <mat-list-item>
+          <span class="full-width text-size">Book Classification</span>
+
+        </mat-list-item>
+        <mat-list-item>
+          <span class="full-width text-size">Stationery Registration</span>
+
+        </mat-list-item>
+        <mat-list-item>
+          <span class="full-width text-size">Book Registration</span>
+
+        </mat-list-item>
+
+        <mat-list-item>
+          <span class="full-width text-size">Book Registration</span>
+
+        </mat-list-item>
+        <mat-list-item>
+          <span class="full-width text-size">Stationery Issuing</span>
+
+        </mat-list-item>
+        <mat-list-item>
+          <span class="full-width text-size">Book Issue</span>
+
+        </mat-list-item>
+        <mat-list-item>
+          <span class="full-width text-size">Book Costs</span>
+
+        </mat-list-item>
+
+        <mat-list-item>
+          <span class="full-width text-size">Items Given Out</span>
+
+        </mat-list-item>
+
+      </div>
+
+      <mat-list-item (click)="showFeesSubmenu = !showFeesSubmenu" class="parent">
+      <span class="full-width" *ngIf="isExpanded || isShowing">Fees Manager</span>
+      <mat-icon class="main-button" mat-list-icon>local_atm</mat-icon>
+      <mat-icon class="menu-button" [ngClass]="{'rotated' : showFeesSubmenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+      </mat-list-item>
+
+
+
+
+      <div class="submenu" [ngClass]="{'expanded' : showFeesSubmenu}" *ngIf="showFeesSubmenu">
+
+
+        <mat-list-item  (click)="openFeemenu()">
+          <span class="full-width text-size">Fee Setups</span>
+
+          <mat-icon class="menu-button" [ngClass]="{'rotated' : showFeeMenu }" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+        </mat-list-item>
+
+        <div class="sub-sub-menu" [ngClass]="{'expanded' : showFeeMenu}" *ngIf="isFeeExpanded || isFeeShowing">
+          <mat-list-item  >
+            <a href="#" class="full-width sub-size">Fees Categories</a>
+
+
+          </mat-list-item>
+
+          <mat-list-item  >
+            <a href="#" class="full-width sub-size">Fees Grouping</a>
+
+
+          </mat-list-item>
+
+          <mat-list-item  >
+            <a href="#" class="full-width sub-size">Fees Structure</a>
+
+
+          </mat-list-item>
+        </div>
+
+        <mat-list-item>
+          <span class="full-width text-size">Recieve Fees</span>
+
+        </mat-list-item>
+
+        <mat-list-item>
+          <span class="full-width text-size">Recieve External Funding</span>
+
+        </mat-list-item>
+
+
+
+        <mat-list-item  (click)="openReceiptmenu()">
+          <span class="full-width text-size"> Manage Receipts</span>
+
+          <mat-icon class="menu-button" [ngClass]="{'rotated' : showReceiptMenu }" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+        </mat-list-item>
+
+        <div class="sub-sub-menu" [ngClass]="{'expanded' : showReceiptMenu}" *ngIf="isReceiptExpanded || isReceiptShowing">
+          <mat-list-item  >
+            <a href="#" class="full-width sub-size">Cancel Receipts</a>
+
+
+          </mat-list-item>
+
+          <mat-list-item  >
+            <a href="#" class="full-width sub-size">Refund Fees</a>
+
+
+          </mat-list-item>
+
+          <mat-list-item  >
+            <a href="#" class="full-width sub-size">Refund Overpayments</a>
+
+
+          </mat-list-item>
+          <mat-list-item  >
+            <a href="#" class="full-width sub-size">Bad Debts</a>
+
+
+          </mat-list-item>
+
+        </div>
+
+
+
+
+
+        <mat-list-item>
+          <span class="full-width text-size">Manage Balances</span>
+
+        </mat-list-item>
+        <mat-list-item>
+          <span class="full-width text-size">Manage Pocket Money</span>
+
+        </mat-list-item>
+        <mat-list-item>
+          <span class="full-width text-size">Fees Reports</span>
+
+        </mat-list-item>
+
+
+
+
+
+      </div>
+
+
+
+      <mat-list-item (click)="showFinanceSubmenu = !showFinanceSubmenu" class="parent">
+        <span class="full-width" *ngIf="isExpanded || isShowing">Finance Manager</span>
+        <mat-icon class="main-button" mat-list-icon>payments</mat-icon>
+        <mat-icon class="menu-button" [ngClass]="{'rotated' : showFinanceSubmenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+      </mat-list-item>
+
+
+      <div class="submenu" [ngClass]="{'expanded' : showFinanceSubmenu}" *ngIf="showFinanceSubmenu">
+
+
+        <mat-list-item  (click)="openPettymenu()">
+          <span class="full-width text-size">Petty Cash</span>
+
+          <mat-icon class="menu-button" [ngClass]="{'rotated' : showPettyMenu }" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+        </mat-list-item>
+
+        <div class="sub-sub-menu" [ngClass]="{'expanded' : showPettyMenu}" *ngIf="isPettyExpanded || isPettyShowing">
+          <mat-list-item  >
+            <a href="#" class="full-width sub-size">Float Replenishment</a>
+
+
+          </mat-list-item>
+
+          <mat-list-item  >
+            <a href="#" class="full-width sub-size">Petty Cash Payments</a>
+
+
+          </mat-list-item>
+
+          <mat-list-item  >
+            <a href="#" class="full-width sub-size">Reports</a>
+
+
+          </mat-list-item>
+        </div>
+
+        <mat-list-item>
+          <span class="full-width text-size">Budget</span>
+
+        </mat-list-item>
+
+        <mat-list-item>
+          <span class="full-width text-size">Suppliers and Customers</span>
+
+        </mat-list-item>
+
+        <mat-list-item>
+          <span class="full-width text-size">Purchase Invoices</span>
+
+        </mat-list-item>
+
+        <mat-list-item>
+          <span class="full-width text-size">Suppliers Payments</span>
+
+        </mat-list-item>
+
+        <mat-list-item>
+          <span class="full-width text-size">Suppliers Balances</span>
+
+        </mat-list-item>
+
+        <mat-list-item>
+          <span class="full-width text-size">Sales</span>
+
+        </mat-list-item>
+
+        <mat-list-item>
+          <span class="full-width text-size">Customer Payments</span>
+
+        </mat-list-item>
+
+        <mat-list-item>
+          <span class="full-width text-size">Customer Payments</span>
+
+        </mat-list-item>
+
+        <mat-list-item  (click)="openAssetsmenu()">
+          <span class="full-width text-size"> Manage Assets</span>
+
+          <mat-icon class="menu-button" [ngClass]="{'rotated' : showAssetsMenu }" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+        </mat-list-item>
+
+        <div class="sub-sub-menu" [ngClass]="{'expanded' : showAssetsMenu}" *ngIf="isAssetsExpanded || isAssetsShowing">
+          <mat-list-item  >
+            <a href="#" class="full-width sub-size">Asset Registration</a>
+
+
+          </mat-list-item>
+
+          <mat-list-item  >
+            <a href="#" class="full-width sub-size">Asset Issuing</a>
+
+
+          </mat-list-item>
+
+
+        </div>
+
+
+
+
+
+        <mat-list-item>
+          <span class="full-width text-size">Period Close</span>
+
+        </mat-list-item>
+
+
+
+
+
+      </div>
+
+
+
+
+      <mat-list-item (click)="showIntegrationsSubmenu = !showIntegrationsSubmenu" class="parent">
+        <span class="full-width" *ngIf="isExpanded || isShowing">Integrations</span>
+        <mat-icon class="main-button" mat-list-icon>integration_instructions</mat-icon>
+        <mat-icon class="menu-button" [ngClass]="{'rotated' : showIntegrationsSubmenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+      </mat-list-item>
+
+      <div class="submenu" [ngClass]="{'expanded' : showIntegrationsSubmenu}" *ngIf="showIntegrationsSubmenu">
+        <mat-list-item>
+          <span class="full-width text-size">Letters and Memos</span>
+
+        </mat-list-item>
+        <mat-list-item>
+          <span class="full-width text-size">SMS</span>
+
+        </mat-list-item>
+        <mat-list-item>
+          <span class="full-width text-size">Email</span>
+
+        </mat-list-item>
+        <mat-list-item>
+          <span class="full-width text-size">Incidents</span>
+
+        </mat-list-item>
+        <mat-list-item>
+          <span class="full-width text-size">Open File</span>
+
+        </mat-list-item>
+        <mat-list-item>
+          <span class="full-width text-size">Notepad</span>
+
+        </mat-list-item>
+        <mat-list-item>
+          <span class="full-width text-size">Calculator</span>
+
+        </mat-list-item>
+
+        <mat-list-item>
+          <span class="full-width text-size">Sync Applications</span>
+
+        </mat-list-item>
+        <mat-list-item>
+          <span class="full-width text-size">Sync Alumni</span>
+
+        </mat-list-item>
+        <mat-list-item>
+          <span class="full-width text-size">Homepage DashBoard</span>
+
+        </mat-list-item>
+
+      </div>
+
+      <mat-list-item (click)="showReportsSubmenu = !showReportsSubmenu" class="parent">
+        <span class="full-width" *ngIf="isExpanded || isShowing">Reports</span>
+        <mat-icon class="main-button" mat-list-icon>summarize</mat-icon>
+        <mat-icon class="menu-button" [ngClass]="{'rotated' : showReportsSubmenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+      </mat-list-item>
+
+
+
+      <div class="submenu" [ngClass]="{'expanded' : showReportsSubmenu}" *ngIf="showReportsSubmenu">
+        <mat-list-item  (click)="openStudReportmenu()">
+          <span class="full-width text-size">Student Reports</span>
+
+          <mat-icon class="menu-button" [ngClass]="{'rotated' : showStudReportMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+        </mat-list-item>
+
+        <div class="sub-sub-menu" [ngClass]="{'expanded' : showStudReportMenu}" *ngIf="isStudReportExpanded || isStudReportShowing">
+          <mat-list-item  >
+            <a href="#" class="full-width sub-size">Student Reports</a>
+
+
+          </mat-list-item>
+
+          <mat-list-item  >
+            <a class="full-width sub-size">Daily Register</a>
+
+
+          </mat-list-item>
+
+
+        </div>
+
+
+
+
+        <mat-list-item  (click)="openTeachermenu()">
+          <span class="full-width text-size">Staff Reports</span>
+
+          <mat-icon class="menu-button" [ngClass]="{'rotated' : showTeacherMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+        </mat-list-item>
+
+        <div class="sub-sub-menu" [ngClass]="{'expanded' : showTeacherMenu}" *ngIf="isTeacherExpanded || isTeacherShowing">
+          <mat-list-item  >
+            <a href="#" class="full-width sub-size">Teacher Listing</a>
+
+
+          </mat-list-item>
+
+          <mat-list-item  >
+            <a class="full-width sub-size">Support Staff Details</a>
+
+
+          </mat-list-item>
+
+          <mat-list-item  >
+            <a class="full-width sub-size">Subject Allocation</a>
+
+
+          </mat-list-item>
+
+          <mat-list-item  >
+            <span class="full-width sub-size">Teachers Daily Register</span>
+
+
+          </mat-list-item>
+
+          <mat-list-item  >
+            <a class="full-width sub-size">Support Staff Register</a>
+
+
+          </mat-list-item>
+
+        </div>
+
+
+
+
+
+
+
+        <mat-list-item  (click)="openAcadRepmenu()">
+          <span class="full-width text-size">Academic Reports</span>
+
+          <mat-icon class="menu-button" [ngClass]="{'rotated' : showAcadRepMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+        </mat-list-item>
+
+        <div class="sub-sub-menu" [ngClass]="{'expanded' : showAcadRepMenu}" *ngIf="isAcadRepExpanded || isAcadRepShowing">
+          <mat-list-item  >
+            <a href="#" class="full-width sub-size">Timetable</a>
+
+
+          </mat-list-item>
+
+          <mat-list-item  >
+            <a class="full-width sub-size">Marks Entered</a>
+
+
+          </mat-list-item>
+
+
+        </div>
+
+
+
+
+
+
+        <mat-list-item  (click)="openFeeRepmenu()">
+          <span class="full-width text-size">Fee Reports</span>
+
+          <mat-icon class="menu-button" [ngClass]="{'rotated' : showFeeRepMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+        </mat-list-item>
+
+        <div class="sub-sub-menu" [ngClass]="{'expanded' : showFeeRepMenu}" *ngIf="isFeeRepExpanded || isFeeRepShowing">
+          <mat-list-item  >
+            <a href="#" class="full-width sub-size">Fee Payment List</a>
+
+
+          </mat-list-item>
+
+          <mat-list-item  >
+            <a class="full-width sub-size">Fee Payment Per Mode</a>
+
+
+          </mat-list-item>
+
+          <mat-list-item  >
+            <a class="full-width sub-size">Fee Payment Per Bank</a>
+
+
+          </mat-list-item>
+
+          <mat-list-item  >
+            <span class="full-width sub-size">Fee Payment Balance Analysis</span>
+
+
+          </mat-list-item>
+
+          <mat-list-item  >
+            <a class="full-width sub-size">Student Statement By Votehead</a>
+
+          </mat-list-item>
+
+        </div>
+
+
+
+
+        <mat-list-item  (click)="openFinalmenu()">
+          <span class="full-width text-size">Final Reports</span>
+
+          <mat-icon class="menu-button" [ngClass]="{'rotated' : showFinalMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+        </mat-list-item>
+
+        <div class="sub-sub-menu" [ngClass]="{'expanded' : showFinalMenu}" *ngIf="isFinalExpanded || isFinalShowing">
+          <mat-list-item  >
+            <a href="#" class="full-width sub-size">Transaction Listing</a>
+
+
+          </mat-list-item>
+
+
+
+          <mat-list-item  >
+            <a class="full-width sub-size">Cashbook</a>
+
+
+          </mat-list-item>
+
+          <mat-list-item  >
+            <a class="full-width sub-size">Cashbook 2</a>
+
+
+          </mat-list-item>
+
+          <mat-list-item  >
+            <a class="full-width sub-size">Profit and Loss</a>
+
+
+          </mat-list-item>
+          <mat-list-item  >
+            <a class="full-width sub-size">Income Expenses vs Budget</a>
+
+
+          </mat-list-item>
+
+          <mat-list-item  >
+            <a class="full-width sub-size">Trial Balance</a>
+
+
+          </mat-list-item>
+
+
+          <mat-list-item  >
+            <a class="full-width sub-size">Balance Sheet</a>
+
+
+          </mat-list-item>
+
+
+          <mat-list-item  >
+            <a class="full-width sub-size">Customizable Final Report</a>
+
+
+          </mat-list-item>
+
+
+        </div>
+
+        <mat-list-item  >
+          <a href="#" class="full-width text-size">Audit Trail</a>
+
+
+        </mat-list-item>
+
+        <mat-list-item  >
+          <a href="#" class="full-width text-size">Reports</a>
+
+
+        </mat-list-item>
+
+      </div>
+
+
+</mat-nav-list>
+  </mat-sidenav>
+
+  <div class="example-sidenav-content">
+<!--    <app-home></app-home>-->
+<!--    <app-organization></app-organization>-->
+    <router-outlet></router-outlet>
+  </div>
+
+</mat-sidenav-container>
+

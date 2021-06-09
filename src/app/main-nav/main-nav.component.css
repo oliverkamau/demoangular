@@ -1,0 +1,122 @@
+
+.example-container {
+  height: 500px;
+  border-top: 2px lightgray solid ;
+}
+img{
+
+  height: 80px;
+  width: 150px;
+
+}
+.example-spacer {
+  flex: 1 1 auto;
+}
+.example-sidenav-content {
+  margin: 5px;
+  /*display: flex;*/
+  /*height: 100%;*/
+  /*align-items: center;*/
+  /*justify-content: center;*/
+}
+.example-icon{
+
+  font-size: 30px;
+
+}
+.example-user{
+
+  font-size: 40px;
+
+}
+.example-sidenav {
+  user-select: none;
+}
+.full-width {
+  width: 100%;
+  margin-left: 5px;
+}
+.text-size{
+  font-size: 0.9em;
+  font-weight: lighter;
+}
+.sub-size{
+  font-size: 0.8em;
+  font-weight: lighter;
+
+}
+.menu-size{
+  font-weight: lighter;
+
+}
+.menu-button {
+  transition: 300ms ease-in-out;
+  transform: rotate(0deg);
+}
+.menu-button.rotated {
+  transform: rotate(180deg);
+}
+.submenu {
+  overflow-y: hidden;
+  transition: transform 300ms ease;
+  transform: scaleY(0);
+  transform-origin: top;
+  padding-left: 30px;
+}
+
+.submenu.expanded {
+  transform: scaleY(1);
+}
+.sub-sub-menu.expanded {
+  transform: scaleY(1);
+}
+.example-app-name{
+
+  margin-left: 20px;
+
+}
+.sub-sub-menu{
+
+  overflow-y: hidden;
+  transition: transform 800ms ease;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  margin-left: 15px;
+
+
+}
+.main-button{
+
+font-size: 30px;
+
+}
+.icon-color{
+   color: teal;
+
+}
+mat-icon{
+  color: teal;
+
+}
+.sub-men-icon{
+
+  margin-left: 55px;
+}
+.side-chev{
+
+  margin-right: 1px;
+}
+mat-sidenav{
+  background-color: #FFFFFF;
+}
+mat-toolbar{
+  background-color: #FFFFFF;
+}
+
+/*mat-menu{*/
+
+/*  margin-left: 10px;*/
+/*}*/
+
+
+

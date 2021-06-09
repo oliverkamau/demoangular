@@ -1,0 +1,40 @@
+
+.content {
+  margin: 10px;
+  padding: 16px;
+  background-color: ghostwhite;
+}
+
+.content > mat-card {
+  margin-bottom: 16px;
+}
+
+.column-label {
+  margin-right: 8px;
+  font-size: 1rem;
+}
+.kv-avatar{
+  width: 150px;
+  height: 10em;
+  margin: 5px;
+}
+.cen{
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.icon-color{
+  color: teal;
+  font-size: 100px;
+}
+.text-up{
+  font-weight: lighter;
+  color: teal;
+}
+mat-card {
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  border-width: 5px;
+  border-color: azure;
+}

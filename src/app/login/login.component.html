@@ -1,0 +1,39 @@
+
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+
+  <mat-card class="box mat-elevation-z8">
+    <img src="assets/images/edlog.jpg" style="width: 300px;height: 12em;padding: 10px">
+    <form  #f="ngForm" novalidate
+            class="example-form" style="margin-top: 1em" (ngSubmit)="f.form. valid && logIn(f.value)">
+
+
+      <mat-card-content>
+        <mat-form-field class="example-full-width" >
+          <input matInput placeholder="Username" name="username"
+          [(ngModel)]="service.form.username"
+                 required
+                 #username="ngModel">
+
+          <mat-hint *ngIf="f.submitted && username.invalid"> <i style="color: red">username is required</i></mat-hint>
+
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input type="password" matInput placeholder="Password" name="password"
+                [(ngModel)]="service.form.password"
+                 required
+                 #password="ngModel">
+          <mat-hint *ngIf="f.submitted && password.invalid"> <i style="color: red">password is required</i></mat-hint>
+         </mat-form-field>
+
+
+       </mat-card-content>
+     <div style="background-color: #a94442"  *ngIf="f.submitted && isLoggedInFailed"  style="text-align: center;margin-bottom: 1em; width: auto"> <i style="color: red">&nbsp;&nbsp;&nbsp;&nbsp; Invalid Log In Credentials!!!</i></div>
+
+       <button type="submit" mat-stroked-button class="btn-block">Log in</button>
+     </form>
+   </mat-card>
+
+ </div>
+
+

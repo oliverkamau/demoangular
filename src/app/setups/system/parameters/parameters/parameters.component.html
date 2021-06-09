@@ -1,0 +1,96 @@
+<div class="content">
+  <div fxLayout="row" style="margin: 1em">
+    <span class="mat-headline" style=" font-weight: lighter">System Parameters</span>
+  </div>
+<!--  <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%" style="margin-bottom: 1em">-->
+
+    <div class="search-div">
+      <button mat-raised-button color="primary" (click)="createParameter()">
+        <mat-icon>add</mat-icon>New
+      </button>
+      <mat-form-field class="search-form-field" floatLabel="never">
+        <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off" (keyup)="applyFilter()">
+        <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey" (click)="onSearchClear()">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+
+    </div>
+<!--  </div>-->
+
+  <div class="mat-elevation-z8 search-div">
+      <mat-table [dataSource]="listData" matSort>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row;columns:displayedColumns"></mat-row>
+        <mat-row matColumnDef="options">
+          <mat-header-cell *matHeaderCellDef></mat-header-cell>
+          <mat-cell *matCellDef="let row">
+            <button mat-icon-button color="primary" (click)="onEdit(row)">
+              <mat-icon>mode</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="onDelete(row)">
+              <mat-icon>delete_outline</mat-icon>
+            </button>
+          </mat-cell>
+        </mat-row>
+        <mat-row matColumnDef="paramName">
+          <mat-header-cell *matHeaderCellDef mat-sort-header="paramName">Name</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.paramName}}</mat-cell>
+        </mat-row>
+        <mat-row matColumnDef="paramValue" >
+          <mat-header-cell *matHeaderCellDef mat-sort-header="paramValue">Value</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.paramValue}}</mat-cell>
+        </mat-row>
+        <mat-row matColumnDef="paramDesc">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Description</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.paramDesc}}</mat-cell>
+        </mat-row>
+        <mat-row matColumnDef="paramType" >
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Type</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.paramType}}</mat-cell>
+        </mat-row>
+        <mat-row matColumnDef="paramUsed">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Used</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.paramUsed}}</mat-cell>
+        </mat-row>
+
+
+<!--          <tr class="mat-row" *matNoDataRow>-->
+<!--            <td style="text-align: end">No matching records found</td>-->
+<!--          </tr>-->
+
+<!--        <tr class="mat-row" *matNoDataRow>-->
+<!--          <td class="mat-cell" colspan="9999">-->
+<!--            No data matching the filter-->
+<!--          </td>-->
+<!--        </tr>-->
+
+        <mat-row matColumnDef="loading">
+          <mat-footer-cell *matFooterCellDef aria-colspan="6">
+            Loading data ...
+          </mat-footer-cell>
+        </mat-row>
+
+        <mat-row matColumnDef="noData">
+          <mat-footer-cell *matFooterCellDef aria-colspan="6">
+            No matching records found
+          </mat-footer-cell>
+        </mat-row>
+
+        <mat-row matColumnDef="noRecord">
+          <mat-footer-cell *matFooterCellDef aria-colspan="6">
+            No matching records found
+          </mat-footer-cell>
+        </mat-row>
+
+        <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':listData!=null}" ></mat-footer-row>
+        <mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide':!(listData!=null && listData.data.length==0)}" ></mat-footer-row>
+        <mat-footer-row *matFooterRowDef="['noRecord']" [ngClass]="{'hide': !(noRecord)}" ></mat-footer-row>
+
+      </mat-table>
+
+
+  <mat-paginator [pageSizeOptions]="[5,10,20,25]" pageSize="10" showFirstLastButtons ></mat-paginator>
+  </div>
+
+</div>

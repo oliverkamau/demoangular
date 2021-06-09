@@ -1,0 +1,128 @@
+<div class="content">
+  <form  #f="ngForm" novalidate
+         class="example-form" (ngSubmit)="f.form.valid && saveParameters(f.value)">
+    <input type="hidden" name="paramCode" [(ngModel)]="service.parameters.paramCode">
+    <div fxLayout="row wrap" fxLayoutGap="16px grid">
+      <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%" style="margin-bottom: 1em">
+        <span class="mat-headline" style=" font-weight: lighter">Add/Edit Parameter</span>
+      </div>
+
+
+      <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%">
+
+        <!--           style="margin-top: 1em" (ngSubmit)="f.form. valid && logIn(f.value)">-->
+
+
+
+
+        <mat-form-field >
+          <mat-label>Name</mat-label>
+          <input name="paramName" matInput
+                    [(ngModel)]="service.parameters.paramName"
+                    #paramName="ngModel"
+                    required>
+        </mat-form-field>
+
+        <mat-hint *ngIf="f.submitted && paramName.invalid"> <i style="color: red">name is required</i></mat-hint>
+
+
+      </div>
+
+      <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%">
+
+        <!--           style="margin-top: 1em" (ngSubmit)="f.form. valid && logIn(f.value)">-->
+
+
+
+
+        <mat-form-field >
+          <mat-label>Description</mat-label>
+          <textarea matInput
+                    name="paramDesc" matInput
+                    [(ngModel)]="service.parameters.paramDesc"
+                    #paramDesc="ngModel"
+                    required></textarea>
+        </mat-form-field>
+
+        <mat-hint *ngIf="f.submitted && paramDesc.invalid"> <i style="color: red">description is required</i></mat-hint>
+
+
+      </div>
+
+
+      <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%">
+
+        <mat-form-field >  <!-- appearance="outline" -->
+          <mat-label>Value</mat-label>
+          <input matInput name="paramValue"
+                    [(ngModel)]="service.parameters.paramValue"
+                    #paramValue="ngModel"
+                    required>
+        </mat-form-field>
+        <mat-hint *ngIf="f.submitted && paramValue.invalid"> <i style="color: red">value is required</i></mat-hint>
+
+
+      </div>
+
+      <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%">
+
+        <!--           style="margin-top: 1em" (ngSubmit)="f.form. valid && logIn(f.value)">-->
+
+
+
+
+        <mat-form-field >
+          <mat-label>Param Type</mat-label>
+          <mat-select name="paramType"
+            [(ngModel)]="service.parameters.paramType"
+            #paramType="ngModel"
+            required>
+            <mat-option value="Amount">Amount</mat-option>
+            <mat-option value="General">General</mat-option>
+            <mat-option value="Quality">Quality</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-hint *ngIf="f.submitted && paramType.invalid"> <i style="color: red">type is required</i></mat-hint>
+
+
+      </div>
+
+      <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%">
+
+        <!--           style="margin-top: 1em" (ngSubmit)="f.form. valid && logIn(f.value)">-->
+
+
+
+
+
+          <mat-checkbox name="paramUsed" [checked]="service.pUsed" [(ngModel)]="service.parameters.paramUsed">Used</mat-checkbox>
+
+
+
+
+
+      </div>
+
+
+
+
+
+        <!--           style="margin-top: 1em" (ngSubmit)="f.form. valid && logIn(f.value)">-->
+
+
+
+      <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%">
+
+
+        <button type="submit" mat-raised-button color="primary" class="mat-elevation-z8">Save</button>
+
+
+
+        <button type="button" mat-raised-button color="warn" class="mat-elevation-z8" style="margin-left: 5px" (click)="closeModal()">Cancel</button>
+
+      </div>
+    </div>
+
+  </form>
+</div>

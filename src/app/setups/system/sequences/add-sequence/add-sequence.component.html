@@ -1,0 +1,107 @@
+<div class="content">
+  <form  #f="ngForm" novalidate
+         class="example-form" (ngSubmit)="f.form.valid && saveSequences(f.value)">
+    <input type="hidden" name="paramCode" [(ngModel)]="service.sequence.seqCode">
+    <div fxLayout="row wrap" fxLayoutGap="16px grid">
+      <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%" style="margin-bottom: 1em">
+        <span class="mat-headline" style=" font-weight: lighter">Add/Edit Sequences</span>
+      </div>
+
+
+      <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%">
+
+        <!--           style="margin-top: 1em" (ngSubmit)="f.form. valid && logIn(f.value)">-->
+
+
+
+
+        <mat-form-field >
+          <mat-label>Code</mat-label>
+          <input name="seqCode" matInput
+                 [(ngModel)]="service.sequence.seqCode"
+                 readonly>
+        </mat-form-field>
+
+
+
+      </div>
+
+      <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%">
+
+        <!--           style="margin-top: 1em" (ngSubmit)="f.form. valid && logIn(f.value)">-->
+
+
+
+
+        <mat-form-field >
+          <mat-label>Name</mat-label>
+          <input matInput
+                    name="seqName" matInput
+                    [(ngModel)]="service.sequence.seqName"
+                    #seqName="ngModel"
+                    required>
+        </mat-form-field>
+
+        <mat-hint *ngIf="f.submitted && seqName.invalid"> <i style="color: red">name is required</i></mat-hint>
+
+
+      </div>
+
+
+      <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%">
+
+        <mat-form-field >  <!-- appearance="outline" -->
+          <mat-label>Value</mat-label>
+          <input matInput name="seqValue"
+                 [(ngModel)]="service.sequence.seqValue"
+                 #seqValue="ngModel"
+                 required>
+        </mat-form-field>
+        <mat-hint *ngIf="f.submitted && seqValue.invalid"> <i style="color: red">value is required</i></mat-hint>
+
+
+      </div>
+
+      <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%">
+
+        <!--           style="margin-top: 1em" (ngSubmit)="f.form. valid && logIn(f.value)">-->
+
+
+
+
+        <mat-form-field >
+          <mat-label>Department</mat-label>
+          <input matInput name="department"
+                 [(ngModel)]="service.sequence.department"
+                 #department="ngModel"
+                 required>
+        </mat-form-field>
+
+        <mat-hint *ngIf="f.submitted && department.invalid"> <i style="color: red">department is required</i></mat-hint>
+
+
+      </div>
+
+
+
+
+
+
+      <!--           style="margin-top: 1em" (ngSubmit)="f.form. valid && logIn(f.value)">-->
+
+
+
+      <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%">
+
+
+        <button type="submit" mat-raised-button color="primary" class="mat-elevation-z8">Save</button>
+
+
+
+        <button type="button" mat-raised-button color="warn" class="mat-elevation-z8" style="margin-left: 5px" (click)="closeModal()">Cancel</button>
+
+      </div>
+    </div>
+
+  </form>
+</div>
